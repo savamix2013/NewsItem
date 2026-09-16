@@ -1,15 +1,14 @@
 package com.example.newsappkmp.service
 
+import com.example.newsappkmp.data.NewsItemsList
 import com.example.newsappkmp.network.NetworkClient
-import com.example.newsappkmp.storage.Storage
 
-class NewsService(
-    private val networkClient: NetworkClient,
-    private val storage: Storage
-) {
+class NewsService(private val httpClient: NetworkClient) {
+    suspend fun loadNews(): Result<NewsItemsList> {
+        return httpClient.request(URL)
+    }
 
-    fun loadData() {
-        // Тут буде реалізація завантаження даних з API
+    companion object {
+        const val URL = "https://newsapi.org/v2/everything?q=science"
     }
 }
-
