@@ -1,31 +1,31 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
+NewsApp KMP
 
-* [/iosApp](./iosApp/iosApp) contains an iOS application. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+Навчальний мобільний застосунок для перегляду новин, розроблений з використанням Kotlin Multiplatform (KMP) та орієнтований на Android.
 
-* [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./shared/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./shared/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./shared/src/jvmMain/kotlin)
-    folder is the appropriate location.
+🛠 Технології
 
-### Running the apps
+Kotlin / Kotlin Multiplatform
 
-Use the run configurations provided by the run widget in your IDE's toolbar. You can also use these commands and options:
+Jetpack Compose + Material 3
 
-- Android app: `./gradlew :androidApp:assembleDebug`
-- iOS app: open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+MVVM
 
-### Running tests
+Kotlin Coroutines & Flow
 
-Use the run button in your IDE's editor gutter, or run tests using Gradle tasks:
+Gradle Kotlin DSL
 
-- Android tests: `./gradlew :shared:testAndroidHostTest`
-- iOS tests: `./gradlew :shared:iosSimulatorArm64Test`
+Version Catalogs
 
----
+🚀 Запуск
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+Клонуйте репозиторій:
+
+git clone https://github.com/savamix2013/NewsItem.git
+cd NewsItem
+
+
+Відкрийте проєкт в Android Studio, дочекайтеся синхронізації Gradle та запустіть конфігурацію androidApp на емуляторі або фізичному Android-пристрої.
+
+📱 Основний функціонал
+
+Застосунок отримує новини через мережевий сервіс та відображає їх у вигляді списку за допомогою Jetpack Compose. Спільна бізнес-логіка винесена в модуль shared.
