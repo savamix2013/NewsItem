@@ -585,3 +585,54 @@ composer.phar
 *.feature.xlsx.*
 
 # End of https://www.toptal.com/developers/gitignore/api/specflow
+
+# Created by https://www.toptal.com/developers/gitignore/api/firebase,codecomposerstudio
+# Edit at https://www.toptal.com/developers/gitignore?templates=firebase,codecomposerstudio
+
+### CodeComposerStudio ###
+
+tmp/
+*.tmp
+*.bak
+# Generated build artifact directories
+Debug/
+Release/
+Flash/
+RAM/
+# Generated build artifacts
+makefile
+*.map
+*.mk
+*.opt
+*.pp
+*.xml
+# Generated directories
+.config/
+.launches/
+# Generated file used to help display error messages in the problems view
+.xdchelp
+# Uniflash session files
+*.uniflashsession
+
+### Firebase ###
+.idea
+**/node_modules/*
+**/.firebaserc
+
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/
+
+# End of https://www.toptal.com/developers/gitignore/api/firebase,codecomposerstudio
+
+# Created by https://www.toptal.com/developers/gitignore/api/powershell
+# Edit at https://www.toptal.com/developers/gitignore?templates=powershell
+
+### PowerShell ###
+# Exclude packaged modules
+*.zip
+
+# Exclude .NET assemblies from source
+*.dll
+
+# End of https://www.toptal.com/developers/gitignore/api/powershell
