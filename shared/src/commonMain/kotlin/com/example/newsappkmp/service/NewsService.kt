@@ -8,6 +8,10 @@ class NewsService(private val httpClient: NetworkClient) {
         return httpClient.request(URL)
     }
 
+    fun getNews() {
+        TODO("Not yet implemented")
+    }
+
     companion object {
         const val URL = "https://newsapi.org/v2/everything?q=science"
     }
