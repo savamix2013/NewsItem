@@ -1,11 +1,7 @@
 package com.example.newsappkmp.network
 
-import com.example.newsappkmp.data.NewsItemsList
-
 class NetworkClient(
-    private val networkConfiguration: NetworkConfiguration
+    private val networkConfiguration: NetworkConfiguration = NetworkConfiguration()
 ) {
-    suspend fun request(url: String): Result<NewsItemsList> {
-        TODO("Provide the return value")
-    }
+    // Сюди додамо HttpClient від Ktor та метод виконання GET-запитів
 }

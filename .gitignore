@@ -636,3 +636,11 @@ makefile
 *.dll
 
 # End of https://www.toptal.com/developers/gitignore/api/powershell
+
+# Created by https://www.toptal.com/developers/gitignore/api/appbuilder
+# Edit at https://www.toptal.com/developers/gitignore?templates=appbuilder
+
+### AppBuilder ###
+.ab/
+
+# End of https://www.toptal.com/developers/gitignore/api/appbuilder

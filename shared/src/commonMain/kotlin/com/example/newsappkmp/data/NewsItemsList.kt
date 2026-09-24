@@ -1,7 +1,11 @@
 package com.example.newsappkmp.data
 
-// Список новин
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class NewsItemsList(
-    val totalResults: Int,
-    val articles: List<NewsItem>
+    val status: String? = null,
+    val totalResults: Int? = null,
+    @SerialName("articles") val articles: List<NewsItem>? = null
 )

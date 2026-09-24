@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.androidMultiplatformLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -36,6 +37,7 @@ kotlin {
             implementation(libs.firebase.messaging)
         }
         commonMain.dependencies {
+            implementation(libs.kotlinx.serialization.json)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
