@@ -5,7 +5,7 @@ import kotlinx.coroutines.tasks.await
 
 class PlatformNotifierAndroid : PlatformNotifier {
 
-    private val firebaseMessaging = FirebaseMessaging.getInstance()
+    private val firebaseMessaging by lazy { FirebaseMessaging.getInstance() }
 
     override suspend fun register(): String {
         return firebaseMessaging.token.await()

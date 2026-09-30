@@ -10,7 +10,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        FirebaseApp.initializeApp(this)
+        runCatching { FirebaseApp.initializeApp(this) }
 
         val notificationManager = NotificationManagerImpl(
             PlatformNotifierAndroid()

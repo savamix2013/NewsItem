@@ -644,3 +644,14 @@ makefile
 .ab/
 
 # End of https://www.toptal.com/developers/gitignore/api/appbuilder
+
+# Created by https://www.toptal.com/developers/gitignore/api/compodoc
+# Edit at https://www.toptal.com/developers/gitignore?templates=compodoc
+
+### Compodoc ###
+# gitignore template for the Compodoc, UI guide for front apps
+# website: https://compodoc.app/
+
+documentation/
+
+# End of https://www.toptal.com/developers/gitignore/api/compodoc

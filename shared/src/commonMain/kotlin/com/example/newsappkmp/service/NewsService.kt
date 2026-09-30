@@ -3,16 +3,17 @@ package com.example.newsappkmp.service
 import com.example.newsappkmp.data.NewsItemsList
 import com.example.newsappkmp.network.NetworkClient
 
-class NewsService(private val httpClient: NetworkClient) {
-    suspend fun loadNews(): Result<NewsItemsList> {
-        return httpClient.request(URL)
-    }
+import com.example.newsappkmp.network.NetworkConfiguration
 
-    fun getNews() {
-        TODO("Not yet implemented")
+class NewsService(
+    private val httpClient: NetworkClient = NetworkClient()
+) {
+    suspend fun loadNews(): Result<NewsItemsList> {
+        return httpClient.request<NewsItemsList>(URL)
     }
 
     companion object {
-        const val URL = "https://newsapi.org/v2/everything?q=science"
+        // Тестовий URL для запиту новин за темою science
+        val URL = "everything?q=science&apiKey=${NetworkConfiguration.API_KEY}"
     }
 }
