@@ -5,7 +5,7 @@ import com.example.newsappkmp.network.NetworkClient
 import com.example.newsappkmp.network.NetworkConfiguration
 
 class NewsService(
-    private val httpClient: NetworkClient = NetworkClient()
+    private val httpClient: NetworkClient
 ) {
 
     suspend fun loadNews(): Result<NewsItemsList> {

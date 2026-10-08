@@ -3,36 +3,29 @@ package com.example.newsappkmp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
-import com.example.newsappkmp.shared.BuildConfig
+import com.example.newsappkmp.di.appDI
 import com.example.newsappkmp.viewmodel.NewsViewModel
-import com.example.newsappkmp.network.NetworkConfiguration
+import org.kodein.di.DI
+import org.kodein.di.DIAware
+import org.kodein.di.instance
 
-class MainActivity : ComponentActivity() {
+class MainActivity : ComponentActivity(), DIAware {
 
-    private val viewModel: NewsViewModel by lazy {
-        NewsViewModel()
-    }
+    // Підключаємо спільний контейнер DI з commonMain
+    override val di: DI = appDI
+
+    // Лістинг 7.13: отримання NewsViewModel через lazy-делегат Kodein
+    private val viewModel: NewsViewModel by di.instance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Передаємо API-ключ зі BuildConfig
-        // у спільний NetworkConfiguration
-        NetworkConfiguration.apiKey = BuildConfig.NEWS_API_KEY
-
         setContent {
             MaterialTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    NewsListScreen(
-                        viewModel = viewModel
-                    )
+                Surface {
+                    NewsListScreen(viewModel = viewModel)
                 }
             }
         }

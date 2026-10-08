@@ -1,14 +1,9 @@
 package com.example.newsappkmp.viewmodel
 
-import com.example.newsappkmp.util.uiDispatcher
-import kotlinx.coroutines.CoroutineDispatcher
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.cancel
 
-open class BaseViewModel(val dispatcher: CoroutineDispatcher = uiDispatcher) {
-    val scope: CoroutineScope = CoroutineScope(dispatcher)
-
-    open fun onCleared() {
-        scope.cancel()
-    }
+open class BaseViewModel : ViewModel() {
+    val scope: CoroutineScope = this.viewModelScope
 }

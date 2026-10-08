@@ -1,29 +1,22 @@
 package com.example.newsappkmp.viewmodel
 
+import androidx.lifecycle.viewModelScope
 import com.example.newsappkmp.data.NewsItemsList
 import com.example.newsappkmp.usecase.NewsUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class NewsViewModel : BaseViewModel() {
-    // TODO: переробити на DI
-    private val useCase: NewsUseCase = NewsUseCase()
+class NewsViewModel(
+    private val useCase: NewsUseCase
+) : BaseViewModel() {
 
-    private val _newsFlow = MutableStateFlow<NewsItemsList?>(null)
-    val newsFlow: StateFlow<NewsItemsList?> = _newsFlow.asStateFlow()
-
-    private val _errorMessage = MutableStateFlow<String?>(null)
-    val errorMessage: StateFlow<String?> = _errorMessage.asStateFlow()
+    var newsFlow = MutableStateFlow<NewsItemsList?>(null)
 
     fun loadNews() {
-        scope.launch {
+        viewModelScope.launch {
             val result = useCase.invoke(Unit)
-            result.onSuccess { data ->
-                _newsFlow.value = data
-            }.onFailure { exception ->
-                _errorMessage.value = exception.message ?: "Невідома помилка мережі"
+            result.getOrNull()?.let {
+                newsFlow.tryEmit(it)
             }
         }
     }

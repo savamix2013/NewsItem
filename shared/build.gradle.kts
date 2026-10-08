@@ -87,6 +87,9 @@ kotlin {
             // Kotlin
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.kotlinx.coroutines.core)
+
+            implementation(libs.kodein.di)
+            implementation(libs.koin.core)
         }
 
         // Tests
