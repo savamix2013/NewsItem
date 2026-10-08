@@ -2,15 +2,15 @@ package com.example.newsappkmp.service
 
 import com.example.newsappkmp.data.NewsItemsList
 import com.example.newsappkmp.network.NetworkClient
-import com.example.newsappkmp.network.NetworkConfiguration
 
-class NewsService(
-    private val httpClient: NetworkClient
-) {
+// Перенесення залежності мережевого клієнта в конструктор
+class NewsService(private val httpClient: NetworkClient) {
 
     suspend fun loadNews(): Result<NewsItemsList> {
-        val url = "everything?q=science&apiKey=${NetworkConfiguration.apiKey}"
+        return httpClient.request(URL)
+    }
 
-        return httpClient.request<NewsItemsList>(url)
+    companion object {
+        const val URL = "https://newsapi.org/v2/everything?q=science"
     }
 }

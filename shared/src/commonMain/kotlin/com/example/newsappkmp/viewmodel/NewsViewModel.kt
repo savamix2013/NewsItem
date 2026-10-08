@@ -10,11 +10,12 @@ class NewsViewModel(
     private val useCase: NewsUseCase
 ) : BaseViewModel() {
 
-    var newsFlow = MutableStateFlow<NewsItemsList?>(null)
+    val newsFlow = MutableStateFlow<NewsItemsList?>(null)
 
     fun loadNews() {
         viewModelScope.launch {
             val result = useCase.invoke(Unit)
+
             result.getOrNull()?.let {
                 newsFlow.tryEmit(it)
             }
